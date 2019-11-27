@@ -7,12 +7,12 @@ import Plane from "./Compnents/planeComp/Plane";
 import Score from "./Compnents/scoreComp/Score";
 import Parachutist from "./Compnents/parachutistsComp/parachutists";
 
-var showParachutist = 13;
-var planepos = 2100;
-const planeStartPos = 2000;
+var showParachutist = 11;
+var planepos = 1600;
+const planeStartPos = 1500;
 const boatStartPos = 900;
 const planStep = 10;
-const planeJourny = 12;
+const planeJourny = 10;
 const Lives = 3;
 
 /************************************************************************
@@ -40,22 +40,30 @@ function App() {
     if (showPlane < showParachutist) planepos = e;
   };
 
+  /*************************************************************
+   *  divRef used to the main div to focuse in start so        *
+   * the arrows listener start without clicking in the main div*
+   *************************************************************/
+    const divRef = React.useRef(null);
+
+
   /************************************************************************
    *  UseEffect to make the plane journy, making it appear for            *
    * 12 seconds and get a random number in range 2-9(which represent      *
    *  the time to make the parachutist jump                               *
    ************************************************************************/
   React.useEffect(() => {
+    divRef.current.focus();
     const interval = setInterval(() => {
       setshowPlane(showPlane => {
         if (showPlane === planeJourny) {
-          showParachutist = Math.floor(Math.random() * 7 + 2);
+          showParachutist = Math.floor(Math.random() * 5 + 2);
           return 0;
         } else {
           return showPlane + 1;
         }
       });
-    }, 1000);
+    }, 1370);
     return () => clearInterval(interval);
   }, []);
 
@@ -83,7 +91,7 @@ function App() {
     return (
       <div className="App">
         <header className="App-header">
-          <p style={{ color: "red", position: "absolute", left: "1000px" }}>
+          <p style={{ color: "red", position: "absolute", left: "700px" }}>
             Game Over
           </p>
         </header>
@@ -91,9 +99,9 @@ function App() {
     );
   }
   return (
-    <div className="App" {...ArrowKeysReact.events} tabIndex="1">
+    <div className="App" {...ArrowKeysReact.events} tabIndex="1" ref={divRef}>
       <header className="App-header">
-        {showPlane <= 7 ? <Plane savePlanePos={savePlanePos} /> : null}
+        {showPlane <= 6 ? <Plane savePlanePos={savePlanePos} /> : null}
         {showPlane >= showParachutist ? (
           <Parachutist
             planepos={planepos}

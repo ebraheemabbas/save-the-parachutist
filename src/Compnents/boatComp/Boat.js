@@ -12,9 +12,9 @@ const Boat = ({ pos }) => {
    ************************************************************************/
   let styles = {
     position: "absolute",
-    width: "250px",
-    height: "250px",
-    bottom: "210px",
+    width: "100px",
+    height: "100px",
+    bottom: "100px",
     left: `${pos[0]}px`
   };
   /*************************

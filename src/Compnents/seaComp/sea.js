@@ -9,9 +9,9 @@ const Sea = () => {
    ************************************************************************/
   let styles = {
     position: "absolute",
-    width: `${window.innerWidth}px`,
+    width: `1700px`,
     bottom: "0px",
-    height: "240px",
+    height: "120px",
     left: 0
   };
   /*************************

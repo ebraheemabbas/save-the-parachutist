@@ -2,7 +2,7 @@ import React from "react";
 import parachutist from "./parachutist.png";
 
 const re_render = 200;
-const sea_surface = 700;
+const sea_surface = 400;
 /**************************************************
  *  Parachutist component to display              *
  *  the Parachutist and re-render to make it move *
@@ -61,7 +61,7 @@ const Parachutist = ({ boatPos, planepos, setScore }) => {
     position: "absolute",
     width: `100px`,
     top: `${120 + 30 * seconds}px`,
-    height: "240px",
+    height: "100px",
     left: `${planepos}px`
   };
 
